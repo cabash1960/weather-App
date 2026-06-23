@@ -20,7 +20,7 @@ function WeatherPage({ searchCity }: { searchCity: string }) {
 
   if (!searchCity)
     return (
-      <div className="font-bold text-center font-bricolage  text-2xl font-bricolage ">
+      <div className="font-bold text-center   text-2xl font-bricolage ">
         Please search for a city to see the weather
       </div>
     );
