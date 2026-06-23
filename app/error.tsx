@@ -18,7 +18,7 @@ function Error({
         {`We couldn't connecy to the server ${error}. Please try again in a few moments.`}{" "}
       </p>
       <button>
-        <Image src="icons/icon-retry.svg" alt="error" width={24} height={24} />{" "}
+        <Image src="icons/icon-retry.svg" alt="error" width={24} height={24} />
         Retry
       </button>
     </div>
