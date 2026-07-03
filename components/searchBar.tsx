@@ -29,8 +29,6 @@ function SearchBar() {
 
   useEffect(() => {
     if (data?.results) {
-      throw new Error("error");
-
       setSuggestions(data.results);
     } else {
       setSuggestions([]);
