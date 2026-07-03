@@ -2,7 +2,7 @@
 
 import { fetchData } from "@/libs/utils";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import CountryDisplay from "./countryDisplay";
 import WeatherDisplay from "./weatherDisplay";
 import DailyForcast from "./dailyForcast";

@@ -6,6 +6,7 @@ export async function fetchData(cityName: string) {
   );
 
   const data = await geoResponse.json();
+
   const { latitude, longitude, name, country } = data.results[0];
 
   const weatherRes = await fetch(
