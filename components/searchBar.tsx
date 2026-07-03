@@ -29,6 +29,8 @@ function SearchBar() {
 
   useEffect(() => {
     if (data?.results) {
+      throw new Error("error");
+
       setSuggestions(data.results);
     } else {
       setSuggestions([]);
@@ -58,37 +60,38 @@ function SearchBar() {
         onSubmit={handleSearch}
         className="flex md:gap-4 flex-col md:flex-row w-full gap-2 items-center"
       >
-        <div className="flex gap-2 items-center relative  w-full bg-[#3A3F65] py-4 px-6  md:px-4 md:py-2 md:rounded-md rounded-lg">
-          <Image
-            alt="weather icon"
-            width="18"
-            height="18"
-            src="/icons/icon-search.svg"
-          />
+        <div className="relative w-full">
+          <div className="flex gap-2 items-center  w-full bg-[#3A3F65] py-4 px-6  md:px-4 md:py-2 md:rounded-md rounded-lg">
+            <Image
+              alt="weather icon"
+              width="18"
+              height="18"
+              src="/icons/icon-search.svg"
+            />
 
-          <input
-            type="text"
-            aria-label="Search"
-            className="outline-0 w-full"
-            value={searchQuery}
-            onChange={handleChange}
-            placeholder="Search for a place... "
-          />
+            <input
+              type="text"
+              aria-label="Search"
+              className="outline-0 w-full"
+              value={searchQuery}
+              onChange={handleChange}
+              placeholder="Search for a place... "
+            />
+          </div>
+          {suggestions && suggestions.length > 0 && (
+            <ul className="mt-2  w-full bg-[#1E2340] border absolute  border-[#3A3F65] rounded-md p-2">
+              {suggestions.map((item, i) => (
+                <li
+                  key={i}
+                  className="p-2 cursor-pointer hover:bg-[#3A3F65] rounded-md"
+                  onClick={() => handleSuggestionClick(item.name)}
+                >
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-
-        {suggestions && suggestions.length > 0 && (
-          <ul className="mt-16 w-full bg-[#1E2340] border absolute  border-[#3A3F65] rounded-md p-2">
-            {suggestions.map((item, i) => (
-              <li
-                key={i}
-                className="p-2 cursor-pointer hover:bg-[#3A3F65] rounded-md"
-                onClick={() => handleSuggestionClick(item.name)}
-              >
-                {item.name}
-              </li>
-            ))}
-          </ul>
-        )}
 
         <button
           type="submit"
