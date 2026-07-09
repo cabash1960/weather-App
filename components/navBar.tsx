@@ -46,6 +46,7 @@ function NavBar() {
             width="12"
             height="12"
             src="/icons/icon-dropdown.svg"
+            className={`${open ? "rotate-180" : ""} transition-all duration-200`}
           />
         </button>
 
@@ -59,7 +60,7 @@ function NavBar() {
               onClick={() => handleToggle("metric")}
             >
               <div
-                className={` flex justify-between items-center px-2 py-1 rounded-md ${system === "metric" ? "bg-[#3A3F65] hover:text-neutral-400 " : ""}`}
+                className={` flex justify-between items-center px-2 py-1 rounded-md ${system === "metric" ? "bg-[#3A3F65] hover:text-neutral-400 " : "hover:bg-[#3A3F65]"}`}
               >
                 <span>Metric</span>
 
@@ -87,7 +88,7 @@ function NavBar() {
               onClick={() => handleToggle("imperial")}
             >
               <div
-                className={` flex justify-between items-center px-2 py-1  rounded-md ${system === "imperial" ? "bg-[#3A3F65] hover:text-neutral-400" : ""}`}
+                className={` flex justify-between items-center px-2 py-1  rounded-md ${system === "imperial" ? "bg-[#3A3F65] hover:text-neutral-400" : "hover:bg-[#3A3F65]"}`}
               >
                 <span>Imperial</span>
 

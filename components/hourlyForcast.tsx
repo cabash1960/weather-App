@@ -61,13 +61,14 @@ function HourlyForcast({ weatherData }: { weatherData: WeatherData }) {
               alt="dropdown"
               width={12}
               height={12}
+              className={`${isOpen ? "rotate-180" : ""} transition-all duration-200`}
             />
           </button>
 
           {isOpen && (
             <ul
               className="cursor-pointer flex px-4 py-2 flex-col gap-2 w-[150px] absolute bg-[#1E2340] border border-[#3A3F65] rounded-md mt-2 right-0 z-10"
-              onMouseLeave={() => setIsOpen(!isOpen)}
+              onMouseLeave={() => setIsOpen(false)}
             >
               {weatherData.daily.time.map((day, index) => {
                 return (
