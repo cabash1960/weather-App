@@ -44,7 +44,7 @@ function HourlyForcast({ weatherData }: { weatherData: WeatherData }) {
     return sortedDay.slice(6, 14);
   }, [hourlyData, selectedDay]);
 
-  function sortedTime(time: string) {}
+  // function sortedTime(time: string) {}
   // console.log(selectedDayHour);
   return (
     <div className="p-4 bg-[#1E2340] flex flex-col gap-4 rounded-lg">
@@ -65,11 +65,14 @@ function HourlyForcast({ weatherData }: { weatherData: WeatherData }) {
           </button>
 
           {isOpen && (
-            <ul className="cursor-pointer flex px-4 py-2 flex-col gap-2 w-[150px] absolute bg-[#1E2340] border border-[#3A3F65] rounded-md mt-2 right-0 z-10">
+            <ul
+              className="cursor-pointer flex px-4 py-2 flex-col gap-2 w-[150px] absolute bg-[#1E2340] border border-[#3A3F65] rounded-md mt-2 right-0 z-10"
+              onMouseLeave={() => setIsOpen(!isOpen)}
+            >
               {weatherData.daily.time.map((day, index) => {
                 return (
                   <li
-                    className="cursor-pointer hover:text-neutral-400"
+                    className="cursor-pointer hover:text-neutral-400 "
                     key={index}
                     onClick={() => {
                       setSelectedDay(day);
@@ -90,7 +93,7 @@ function HourlyForcast({ weatherData }: { weatherData: WeatherData }) {
           {selectedDayHour.map((hour, index) => (
             <li
               key={index}
-              className="flex justify-between px-4 py-2 rounded-md items-center bg-[#3A3F65]/20 border border-[#3A3F65]"
+              className="flex justify-between px-4 py-2 rounded-md items-center bg-[#3A3F65]/20 border transition-all duration-300 hover:scale-105 border-[#3A3F65]"
             >
               {" "}
               <div className="flex justify-center items-center gap-2">

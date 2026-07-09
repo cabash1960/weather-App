@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { DM_Sans, Bricolage_Grotesque } from "next/font/google";
+import { DM_Sans, Bricolage_Grotesque, Geist } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navBar";
 import Provider from "@/components/Provider";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const bricolageGrotesque = Bricolage_Grotesque({
   variable: "--font-bricolage-base",
@@ -29,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${bricolageGrotesque.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", dmSans.variable, bricolageGrotesque.variable, "font-sans", geist.variable)}
     >
       <body className="min-h-full  text-neutral-300 flex flex-col gap-14 lg:px-18 lg:py-12 px-4 py-8 bg-[#0B0F2E]">
         <Provider>

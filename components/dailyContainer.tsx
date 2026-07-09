@@ -19,7 +19,7 @@ function DailyContainer({
     system === "metric" ? minCelsius : (minCelsius * 9) / 5 + 32;
 
   return (
-    <div className="flex flex-col justify-center items-center gap-2 bg-[#1E2340] border border-[#3A3F65] p-2 rounded-md">
+    <div className="flex flex-col justify-center items-center transition-all duration-300 hover:scale-105 gap-2 bg-[#1E2340] border border-[#3A3F65] p-2 rounded-md">
       <p className="text-sm">{weatherData.day}</p>
       <Image
         alt="weather icon"

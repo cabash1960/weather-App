@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { useUnit } from "./unitProvider";
 import Image from "next/image";
-import { error } from "next/dist/build/output/log";
 
 // type Props = {};
 
@@ -51,13 +50,16 @@ function NavBar() {
         </button>
 
         {open && (
-          <ul className="cursor-pointer w-[150px] z-100 absolute p-4 bg-[#1E2340] border border-[#3A3F65] -left-10 rounded-md mt-2">
+          <ul
+            className="cursor-pointer w-[150px] z-100 absolute p-4 bg-[#1E2340] border border-[#3A3F65] -left-10 rounded-md mt-2"
+            onMouseLeave={() => setIsOpen(!open)}
+          >
             <li
               className={`cursor-pointer  flex flex-col gap-2  `}
               onClick={() => handleToggle("metric")}
             >
               <div
-                className={` flex justify-between items-center px-2 py-1 rounded-md ${system === "metric" ? "bg-[#3A3F65] " : ""}`}
+                className={` flex justify-between items-center px-2 py-1 rounded-md ${system === "metric" ? "bg-[#3A3F65] hover:text-neutral-400 " : ""}`}
               >
                 <span>Metric</span>
 
@@ -73,10 +75,10 @@ function NavBar() {
               <p
                 className={` text-nowrap ${system === "metric" ? "text-neutral-400 " : "text-[#3A3F65] "} border-b border-[#3A3F65] flex flex-col text-sm gap-1 px-2 py-1 `}
               >
-                <span>km/h</span>
-                <span>°C</span>
-                <span>mm</span>
-                <span>%</span>
+                <span className="hover:text-neutral-400">km/h</span>
+                <span className="hover:text-neutral-400">°C</span>
+                <span className="hover:text-neutral-400">mm</span>
+                <span className="hover:text-neutral-400">%</span>
               </p>
             </li>
 
@@ -85,7 +87,7 @@ function NavBar() {
               onClick={() => handleToggle("imperial")}
             >
               <div
-                className={` flex justify-between items-center px-2 py-1  rounded-md ${system === "imperial" ? "bg-[#3A3F65] " : ""}`}
+                className={` flex justify-between items-center px-2 py-1  rounded-md ${system === "imperial" ? "bg-[#3A3F65] hover:text-neutral-400" : ""}`}
               >
                 <span>Imperial</span>
 
@@ -104,10 +106,10 @@ function NavBar() {
               <p
                 className={`text-sm text-nowrap ${system === "imperial" ? "text-neutral-400 " : "text-[#3A3F65] "}  border-[#3A3F65] flex flex-col gap-1 px-2 py-1 `}
               >
-                <span>mph</span>
-                <span>°F</span>
-                <span>in </span>
-                <span>%</span>
+                <span className="hover:text-neutral-400">mph</span>
+                <span className="hover:text-neutral-400">°F</span>
+                <span className="hover:text-neutral-400">in </span>
+                <span className="hover:text-neutral-400">%</span>
               </p>
             </li>
           </ul>

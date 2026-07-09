@@ -11,14 +11,16 @@ function WeatherDisplay({ weatherData }: { weatherData: WeatherData }) {
   const celsius = weatherData?.current?.apparent_temperature ?? 0;
   // Convert Celsius to Fahrenheit: (C * 9/5) + 32
   const temperature =
-    system === "metric" ? celsius : +((celsius * 9) / 5 + 32).toFixed();
+    system === "metric"
+      ? +celsius.toFixed()
+      : +((celsius * 9) / 5 + 32).toFixed();
 
   const humidity = weatherData?.current?.relative_humidity_2m ?? 0;
 
-  const wind = +(weatherData?.current?.windspeed_10m ?? 0).toFixed(2);
+  const wind = +(weatherData?.current?.windspeed_10m ?? 0).toFixed();
   const formattedWind = system === "metric" ? wind : +(wind * 2.237).toFixed();
 
-  const precipitation = +(weatherData?.current?.precipitation ?? 0).toFixed(2);
+  const precipitation = +(weatherData?.current?.precipitation ?? 0).toFixed();
   const formattedPrecipitation =
     system === "metric" ? precipitation : precipitation * 2.237;
 

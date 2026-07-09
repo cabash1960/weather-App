@@ -7,6 +7,7 @@ import CountryDisplay from "./countryDisplay";
 import WeatherDisplay from "./weatherDisplay";
 import DailyForcast from "./dailyForcast";
 import HourlyForcast from "./hourlyForcast";
+import SkeletonLoader from "./skeletonLoader";
 
 function WeatherPage({ searchCity }: { searchCity: string }) {
   const { isPending, error, data, isFetching } = useQuery({
@@ -25,7 +26,7 @@ function WeatherPage({ searchCity }: { searchCity: string }) {
       </div>
     );
 
-  if (isPending) return "Loading...";
+  if (isPending) return <SkeletonLoader />;
 
   if (error)
     return (
